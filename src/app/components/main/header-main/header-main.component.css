@@ -26,6 +26,14 @@ nav {
   background: transparent;
 }
 
+.opciones:hover {
+  background-color: #f9faf4;
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 1rem;
+}
+
 .user {
   position: absolute;
   width: 50px;
