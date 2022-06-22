@@ -1,0 +1,61 @@
+<nav>
+    <div class="row col-12">
+        <div class="col-5" style="padding:0;">
+            <a href="/"><img class="logo" src="../../../../assets/img/logo.png" alt="logo" href="/dsds"
+                    type="button"></a>
+        </div>
+        <div class="row col-7">
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                <a href="/"><button class="opciones" href="/">Home</button></a>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                <a href="/"><button class="opciones" href="/">About</button></a>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                <a href="/"><button class="opciones" href="/">Contact</button></a>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                <form class="form-container" #loginForm="ngForm" (ngSubmit)="open(modal)">
+                    <button class="opciones login">Log In</button>
+                    <img class="user" src="../../../../assets/img/user.png" alt="user">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #modal let-modal>
+        <div class="modal-dialog modal-dialog-centered">
+            <ul class="navbar-nav ml-auto">
+                <div class="modal-content" style="width: 120%;left: -10%;">
+                    <section>
+                        <div class="row no-gutters">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="container align-self">
+                                    <label
+                                        style="margin-left: 10%;font-style: normal;font-weight: 400;font-size: 40px;line-height: 45px;color: #FFFFFF;">Iniciar
+                                        Sesion</label>
+                                    <br>
+                                    <br>
+                                    <form>
+                                        <div class="form-group mb-3 ">
+                                            <input type="text" class="form-control" placeholder="Usuario" name="mail">
+                                            <br>
+                                            <input type="password" class="form-control" placeholder="Contraseña"
+                                                name="password">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <li style="margin-left: 20%;" class="nav-item mr-auto">
+                        <input type="button" value="Iniciar Sesión"
+                            style="color: #FFFFFF;background: #3B4664; border-radius: 25px;width: 190px;height: 52.27px; margin-bottom: 10px;border: transparent; font-size: 20px;"  (click)="login()">
+                    </li>
+                    <br>
+                </div>
+            </ul>
+        </div>
+
+    </ng-template>
+</nav>

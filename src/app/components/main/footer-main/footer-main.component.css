@@ -1,0 +1,17 @@
+footer {
+  height: 280px;
+  padding: 5px 0;
+  left: 0px;
+  top: 774px;
+  background: #4f87b7;
+}
+
+.opciones {
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 29px;
+  color: #ffffff;
+  border: transparent;
+  background: transparent;
+}
