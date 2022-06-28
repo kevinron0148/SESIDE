@@ -1,0 +1,50 @@
+<h1 style="text-align: center;margin-top: 10px;">GESTIONAR TEST</h1>
+<table class="table" style="background-color: beige">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Observación</th>
+      <th scope="col">Psicologo</th>
+      <th scope="col">Iniciar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let test of tests">
+      <td>{{test.id}}</td>
+      <td>{{test.date}}</td>
+      <td *ngIf="test.is_active == true">Pendiente</td>
+      <td *ngIf="test.is_active != true">Completado</td>
+      <td>{{test.observation}}</td>
+      <td><button class="btn btn-info btn-xs" (click)="open(modalPsycho)" (click)="seleccionarTest(test)">VER
+          DATOS</button></td>
+      <td><button class="btn btn-info btn-xs" >ABRIR</button></td>
+    </tr>
+  </tbody>
+
+</table>
+
+<ng-template #modalPatient let-modalPatient>
+  <div class="modal-content modal-content-centered">
+    <h1 style="text-align: center;margin-top: 10px;">DATOS DE PACIENTE</h1>
+    <label>Nombres: {{paciente.first_name}}</label>
+    <label>Apellidos: {{paciente.last_name}}</label>
+    <label>Género: {{paciente.gender}}</label>
+    <label>Edad: {{paciente.age}}</label>
+    <label>Correo Electrónico: {{paciente.email}}</label>
+    <label>Grado de Instrucción: {{paciente.level_of_education}}</label>
+    <label>Lugar de Nacimiento: {{paciente.birthplace}}</label>
+    <label class="pb-3">Teléfono: {{paciente.phone}}</label>
+  </div>
+</ng-template>
+
+
+<ng-template #modalPsycho let-modalPsycho>
+  <div class="modal-content modal-content-centered">
+    <h1 style="text-align: center;margin-top: 10px;">DATOS DE PSICOLOGO</h1>
+    <label>Nombres: {{psycho.first_name}}</label>
+    <label>Apellidos: {{psycho.last_name}}</label>
+    <label class="pb-3">Correo Electrónico: {{psycho.email}}</label>
+  </div>
+</ng-template>

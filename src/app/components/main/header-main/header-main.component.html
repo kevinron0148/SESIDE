@@ -38,10 +38,10 @@
                                     <br>
                                     <form>
                                         <div class="form-group mb-3 ">
-                                            <input type="text" class="form-control" placeholder="Usuario" name="mail">
+                                            <input type="text" class="form-control" placeholder="Usuario" name="username"  [(ngModel)]="user.username">
                                             <br>
                                             <input type="password" class="form-control" placeholder="Contraseña"
-                                                name="password">
+                                                name="password" [(ngModel)]="user.password">
                                         </div>
                                     </form>
                                 </div>
@@ -49,8 +49,8 @@
                         </div>
                     </section>
                     <li style="margin-left: 20%;" class="nav-item mr-auto">
-                        <input type="button" value="Iniciar Sesión"
-                            style="color: #FFFFFF;background: #3B4664; border-radius: 25px;width: 190px;height: 52.27px; margin-bottom: 10px;border: transparent; font-size: 20px;"  (click)="login()">
+                        <input type="button" value="Iniciar Sesión" (click)="buscarUsuario(user.username, user.password)"
+                            style="color: #FFFFFF;background: #3B4664; border-radius: 25px;width: 190px;height: 52.27px; margin-bottom: 10px;border: transparent; font-size: 20px;"  >
                     </li>
                     <br>
                 </div>
