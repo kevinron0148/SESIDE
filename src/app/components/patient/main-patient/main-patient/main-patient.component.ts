@@ -9,7 +9,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class MainPatientComponent implements OnInit {
   paciente = new Patient(0, '', '', '', 0, '', '', '', '', 1, 0);
-  opcion = 0;
+  opcion = 3;
   constructor(private userService: UsersService) {}
 
   ngOnInit(): void {

@@ -1,24 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Patient } from 'src/app/clases/patient';
 import { Psychologist } from 'src/app/clases/psychologist';
-import { Test } from 'src/app/clases/test';
 import { User } from 'src/app/clases/user';
 import { UsersService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-listar-pacientes',
-  templateUrl: './listar-pacientes.component.html',
-  styleUrls: ['./listar-pacientes.component.css'],
+  selector: 'app-listar-psycho',
+  templateUrl: './listar-psycho.component.html',
+  styleUrls: ['./listar-psycho.component.css'],
 })
-export class ListarPacientesComponent implements OnInit {
-  pacientes: Patient[] | undefined;
+export class ListarPsychoComponent implements OnInit {
+  psicologos: Psychologist[] | undefined;
   user = new User(0, '', '', true, 0);
   psycho = new Psychologist(0, '', '', '', 0);
-  paciente = new Patient(0, '', '', '', 0, '', '', '', '', 1, 0);
-  test = new Test(0, new Date() as unknown as string, 'Ninguna', true, 0, 0);
   closeResult = '';
   mensajeModal: string | undefined;
   constructor(
@@ -28,15 +24,9 @@ export class ListarPacientesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userService.listarPacientes().subscribe((data) => {
-      this.pacientes = data;
+    this.userService.listarPsicologos().subscribe((data) => {
+      this.psicologos = data;
     });
-    console.log(localStorage.getItem('psychologist_id'))
-    if (localStorage.getItem('psychologist_id') != null) {
-      this.paciente.psychologist_id = localStorage.getItem(
-        'psychologist_id'
-      ) as unknown as number;
-    }
   }
 
   open(content: any) {
@@ -62,19 +52,19 @@ export class ListarPacientesComponent implements OnInit {
     }
   }
 
-  agregarPaciente() {
-    this.user.role_id = 3;
+  agregarPsicologo() {
+    this.user.role_id = 2;
     this.user.username = this.user.username.toLowerCase();
     this.userService.agregarUser(this.user).subscribe(
       (res) => {
         if (res != null) {
-          this.paciente.user_id = res.id;
-          this.userService.agregarPaciente(this.paciente).subscribe(
+          this.psycho.user_id = res.id;
+          this.userService.agregarPsicologo(this.psycho).subscribe(
             (rpta) => {
               if (rpta != null) {
                 Swal.fire({
                   icon: 'success',
-                  title: 'Paciente Registrado Correctamente',
+                  title: 'Psicologo Registrado Correctamente',
                   showConfirmButton: false,
                   timer: 2500,
                 });
@@ -84,7 +74,7 @@ export class ListarPacientesComponent implements OnInit {
             (error) => {
               Swal.fire({
                 icon: 'error',
-                title: 'Error al Registrar Paciente',
+                title: 'Error al Registrar Psicologo',
                 showConfirmButton: false,
                 timer: 1500,
               });
@@ -105,35 +95,8 @@ export class ListarPacientesComponent implements OnInit {
 
   cambiarEstadoCuenta() {}
 
-  seleccionarPaciente(paciente: Patient) {
-    this.paciente = paciente;
-    console.log(this.paciente);
-  }
-
-  agregarTest_Paciente() {
-    this.test.date = new Date() as unknown as string;
-    this.test.patient_id = this.paciente.id;
-    this.test.psychologist_id = this.paciente.psychologist_id;
-    this.userService.agregarTest_paciente(this.test).subscribe(
-      (res) => {
-        if (res != null) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Test Añadido Correctamente',
-            showConfirmButton: false,
-            timer: 2500,
-          });
-          window.location.reload();
-        }
-      },
-      (error) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error al Añadir Test al Usuario',
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    );
+  seleccionarPsicologo(paciente: Psychologist) {
+    //this.paciente = paciente;
+    //console.log(this.paciente);
   }
 }

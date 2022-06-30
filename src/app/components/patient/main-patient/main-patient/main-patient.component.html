@@ -1,16 +1,44 @@
-<app-header-patient></app-header-patient>
+<nav>
+    <div class="row col-12">
+        <div class="col-5" style="padding:0;">
+            <a href="/"><img class="logo" src="../../../../assets/img/logo.png" alt="logo" href="/dsds"
+                    type="button"></a>
+        </div>
+        <div class="row col-7">
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                <a ><button class="opciones" (click)="opcion3()">Inicio</button></a>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                <a ><button class="opciones"  style="width: 167px; margin-left: -22px;" (click)="opcion1()">Pendientes</button></a>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                <a ><button class="opciones" style="width: 175px;" (click)="opcion2()">Completados</button></a>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                <button class="opciones login">{{paciente.first_name}}</button>
+                <img class="user" src="../../../../assets/img/user.png" alt="user" style="cursor: pointer"
+                    id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" style="cursor: pointer" (click)="opcion3()">Inicio</a></li>
+                    <li><a class="dropdown-item" style="cursor: pointer" (click)="logOut()">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>
 
 <body>
     <div class="row col-12">
         <div class="col-2">
             <div id="sidebar" class="sidebar" style="width: 100%; height: 100%;">
                 <ul class="menu">
-                    <li><a (click)="opcion1()">Test Activos</a></li>
-                    <li><a (click)="opcion2()">Historial</a></li>
+                    <li><a (click)="opcion1()" style="cursor: pointer">Test Pendientes</a></li>
+                    <li><a (click)="opcion2()" style="cursor: pointer">Test Completados</a></li>
                     <br>
                     <br>
                     <br>
-                    <li><a href="/">Log Out</a></li>
+                    <li><a (click)="logOut()" style="cursor: pointer;">Log Out</a></li>
                 </ul>
             </div>
         </div>
@@ -19,7 +47,25 @@
                 <app-test-activos></app-test-activos>
             </div>
             <div *ngIf="opcion===2">
-                <app-listar-pacientes></app-listar-pacientes>
+                <app-historial-test></app-historial-test>
+            </div>
+            <div *ngIf="opcion===3">
+                <div class="from-group text-center">
+                    <h1
+                        style="margin-top: 25px;font-style: normal;font-weight: 800;font-size: 50px;line-height: 59px;color: #3B4664;">
+                        SEDIDE - DIAGNÓSTICO DE LA
+                        DEPRESIÓN
+                    </h1>
+                    <div class="col-12">
+                        <label
+                            style="font-style: normal;font-weight: 400;font-size: 25px;line-height: 29px;color: #000000;">Estamos
+                            ayudándote en el cuidado de tu salud mental</label>
+                    </div>
+                    <div class="col-12">
+                        <img class="logo" src="../../../../assets/img/brainremove.png" style="width: 38%;" alt="logo">
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

@@ -18,6 +18,9 @@ import { MainPatientComponent } from './components/patient/main-patient/main-pat
 import { ListarPacientesComponent } from './components/patient/list-patients/listar-pacientes/listar-pacientes.component';
 import { ListarTestComponent } from './components/test/listar-test/listar-test.component';
 import { TestActivosComponent } from './components/patient/test-activos/test-activos/test-activos.component';
+import { RunTestComponent } from './components/test/run-test/run-test/run-test.component';
+import { HistorialTestComponent } from './components/patient/historial-test/historial-test/historial-test.component';
+import { ListarPsychoComponent } from './components/admin/listar-psycho/listar-psycho/listar-psycho.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +36,9 @@ import { TestActivosComponent } from './components/patient/test-activos/test-act
     ListarPacientesComponent,
     ListarTestComponent,
     TestActivosComponent,
+    RunTestComponent,
+    HistorialTestComponent,
+    ListarPsychoComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,8 +8,8 @@ export class Test {
     public observation: String,
     public is_active: boolean,
     public patient_id: number,
-    public patient: Patient,
+    //public patient: Patient,
     public psychologist_id: number,
-    public psychologist: Psychologist
+    //public psychologist: Psychologist
   ) {}
 }

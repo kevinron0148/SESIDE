@@ -1,0 +1,56 @@
+<h1 style="text-align: center;margin-top: 10px;">GESTIONAR PSICOLOGO</h1>
+
+<form class="form-container" #createForm="ngForm" (ngSubmit)="open(modalRegistrar)">
+  <a (click)="open(modalRegistrar)" style="margin-bottom: 25px; margin-left: 5px;" class="btn btn-success btn-xs">Añadir
+    Psicologo</a>
+</form>
+<table class="table table-responsive" style="background-color: beige">
+  <thead>
+    <tr>
+      <th scope="col">NOMBRES</th>
+      <th scope="col">APELLIDOS</th>
+      <th scope="col" style="min-width: 200px;">CORREO ELECTRONICO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let psicologo of psicologos">
+      <td>{{psicologo.first_name}}</td>
+      <td>{{psicologo.last_name}}</td>
+      <td>{{psicologo.email}}</td>
+    </tr>
+  </tbody>
+
+</table>
+
+<ng-template #modalRegistrar let-modalRegistrar>
+  <div class="modal-content modal-content-centered">
+    <div class="col-12 from-group text-center pt-3">
+      <h1 style="color:#0f0e0e">REGISTRAR PSICOLOGO</h1>
+    </div>
+    <div class="col-12 form-group pt-3">
+      <input type="text" name="nombres" [(ngModel)]="psycho.first_name" class="form-control" placeholder="Nombres"
+        ngModel #nameInput="ngModel" required>
+    </div>
+    <div class="col-12 form-group pt-3">
+      <input type="text" name="apellidos" [(ngModel)]="psycho.last_name" class="form-control" placeholder="Apellidos"
+        ngModel #apellidosInput="ngModel" required>
+    </div>
+    <div class="col-12 form-group pt-3 ">
+      <input type="text" name="email" [(ngModel)]="psycho.email" class="form-control" placeholder="Correo Electronico"
+        ngModel #emailInput="ngModel" required>
+    </div>
+    <div class="col-12 form-group pt-3">
+      <input type="text" name="username" [(ngModel)]="user.username" class="form-control" placeholder="Username" ngModel
+        #usernameInput="ngModel" required>
+    </div>
+    <div class="col-12 form-group pt-3 pb-3">
+      <input type="password" name="password" [(ngModel)]="user.password" class="form-control" placeholder="Contraseña"
+        ngModel #passwordInput="ngModel" required>
+    </div>
+  
+    <div class="col-12 pb-3" style=" display: flex; justify-content: center; align-items: center;">
+      <button (click)="agregarPsicologo()">REGISTRAR</button>
+    </div>
+  </div>
+</ng-template>
+

@@ -17,6 +17,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class ListarTestComponent implements OnInit {
   tests: Test[] | undefined;
+  fecha = new Date().getFullYear() + "/" + new Date().getMonth() + "/" + new Date().getDate();
   desordenDepresivo = new Depressive_disorder(0, '', '', '', '');
   reportesDiagnostico: Diagnostic_report[] | undefined;
   reportesDiagnosticoCopy: Diagnostic_report[] | undefined;
@@ -29,16 +30,7 @@ export class ListarTestComponent implements OnInit {
   user = new User(0, '', '', true, 0);
   psycho = new Psychologist(0, '', '', '', 0);
   paciente = new Patient(0, '', '', '', 0, '', '', '', '', 1, 0);
-  test = new Test(
-    0,
-    new Date() as unknown as string,
-    '',
-    true,
-    0,
-    this.paciente,
-    0,
-    this.psycho
-  );
+  test = new Test(0, new Date() as unknown as string, '', true, 0, 0);
   closeResult = '';
   mensajeModal: string | undefined;
   constructor(

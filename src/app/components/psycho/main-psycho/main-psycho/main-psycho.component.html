@@ -8,10 +8,10 @@
         </div>
         <div class="row col-6">
             <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                <a (click)="opcion1()"><button class="opciones">Test</button></a>
+                <a (click)="opcion3()"><button class="opciones">Inicio</button></a>
             </div>
             <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                <a (click)="opcion3()"><button class="opciones" style="width: 135px;">Usuarios</button></a>
+                <a (click)="opcion1()"><button class="opciones" style="width: 135px;">Test</button></a>
             </div>
             <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                 <a (click)="opcion2()"><button class="opciones" style="width: 135px;">Pacientes</button></a>
@@ -21,9 +21,8 @@
                 <img class="user" src="../../../../assets/img/user.png" alt="user" style="cursor: pointer"
                     id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" routerLink="/main-administrador">Inicio</a></li>
-                    <li><a class="dropdown-item" routerLink="/perfil-admin">Perfil</a></li>
-                    <li><a class="dropdown-item" (click)="logOut()">Cerrar Sesión</a></li>
+                    <li><a class="dropdown-item"  style="cursor: pointer" (click)="opcion3()">Inicio</a></li>
+                    <li><a class="dropdown-item" style="cursor: pointer" (click)="logOut()">Cerrar Sesión</a></li>
                 </ul>
             </div>
         </div>
@@ -45,7 +44,7 @@
 </nav>
 
 <body>
-    <div class="row col-12" >
+    <div class="row col-12">
         <div class="col-2">
             <div id="sidebar" class="sidebar" style="width: 100%; height: 100%;">
                 <ul class="menu">
@@ -64,6 +63,24 @@
             </div>
             <div *ngIf="opcion===2">
                 <app-listar-pacientes></app-listar-pacientes>
+            </div>
+            <div *ngIf="opcion===3">
+                <div class="from-group text-center">
+                    <h1
+                        style="margin-top: 25px;font-style: normal;font-weight: 800;font-size: 50px;line-height: 59px;color: #3B4664;">
+                        SEDIDE - DIAGNÓSTICO DE LA
+                        DEPRESIÓN
+                    </h1>
+                    <div class="col-12">
+                        <label
+                            style="font-style: normal;font-weight: 400;font-size: 25px;line-height: 29px;color: #000000;">Estamos
+                            ayudándote en el cuidado de tu salud mental</label>
+                    </div>
+                    <div class="col-12">
+                        <img class="logo" src="../../../../assets/img/brainremove.png" style="width: 38%;" alt="logo">
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

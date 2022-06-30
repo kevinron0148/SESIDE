@@ -16,7 +16,7 @@
       <td>{{test.id}}</td>
       <td><button class="btn btn-info btn-xs" (click)="open(modalPatient)" (click)="seleccionarTest(test)">VER
           DATOS</button></td>
-      <td>{{test.date}}</td>
+      <td>{{fecha}}</td>
       <td *ngIf="test.is_active == true">Pendiente</td>
       <td *ngIf="test.is_active != true">Completado</td>
       <td>{{test.observation}}</td>
@@ -66,7 +66,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let reporteDiagnostico of reportesDiagnostico">
-          <td>{{reporteDiagnostico.date}}</td>
+          <td>{{fecha}}</td>
           <td>{{reporteDiagnostico.depressive_disorder_id}}</td>
           <td><button class="btn btn-info btn-xs" (click)="open(modalVerDesordenDepresivo)"
               (click)="verDesordenDepresivo(reporteDiagnostico.depressive_disorder_id)">VER MÁS</button></td>

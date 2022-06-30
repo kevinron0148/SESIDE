@@ -15,7 +15,7 @@
       <th scope="col" style="min-width: 200px;">LUGAR DE NACIMIENTO</th>
       <th scope="col">TELEFONO</th>
       <th scope="col" style="min-width: 200px;">CORREO ELECTRONICO</th>
-      <th scope="col">SELECCIONAR</th>
+      <th scope="col">TEST</th>
     </tr>
   </thead>
   <tbody>
@@ -28,8 +28,8 @@
       <td>{{paciente.birthplace}}</td>
       <td>{{paciente.phone}}</td>
       <td>{{paciente.email}}</td>
-      <td><button class="btn btn-info btn-xs" (click)="open(modalSeleccionar)"
-          (click)="seleccionarPaciente(paciente)">ESCOGER</button></td>
+      <td><button class="btn btn-info btn-xs"
+          (click)="seleccionarPaciente(paciente)" (click)="agregarTest_Paciente()">AÑADIR</button></td>
     </tr>
   </tbody>
 

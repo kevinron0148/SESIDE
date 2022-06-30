@@ -7,14 +7,15 @@ import { Test } from 'src/app/clases/test';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
-  selector: 'app-test-activos',
-  templateUrl: './test-activos.component.html',
-  styleUrls: ['./test-activos.component.css'],
+  selector: 'app-historial-test',
+  templateUrl: './historial-test.component.html',
+  styleUrls: ['./historial-test.component.css'],
 })
-export class TestActivosComponent implements OnInit {
+export class HistorialTestComponent implements OnInit {
   tests: Test[] | undefined;
   paciente = new Patient(0, '', '', '', 0, '', '', '', '', 1, 0);
   closeResult = '';
+  fecha = new Date().getFullYear() + "/" + new Date().getMonth() + "/" + new Date().getDate();
   mensajeModal: string | undefined;
   psycho = new Psychologist(0, '', '', '', 0);
   test = new Test(0, new Date() as unknown as string, '', true, 0, 0);
@@ -26,7 +27,7 @@ export class TestActivosComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService
-      .listarTestActivos(localStorage.getItem('patient_id') as string)
+      .listarTestInactivos(localStorage.getItem('patient_id') as string)
       .subscribe((data) => {
         this.tests = data;
       });
@@ -55,24 +56,15 @@ export class TestActivosComponent implements OnInit {
     }
   }
 
-  guardarTest_id(test: Test) {
-    localStorage.setItem('test_id', test.id as unknown as string);
-  }
-
   seleccionarTest(test: Test) {
     this.test = test;
-    this.guardarTest_id(test);
+    console.log(this.test);
+
     this.userService
       .buscarPsicologoById(this.test.psychologist_id as unknown as string)
       .subscribe((data) => {
         this.psycho = data;
       });
     console.log(this.psycho);
-  }
-
-  runTest(test: Test) {
-    this.test = test;
-    this.guardarTest_id(test);
-    this.router.navigate(['/run-test']);
   }
 }

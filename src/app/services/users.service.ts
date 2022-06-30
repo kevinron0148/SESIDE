@@ -65,7 +65,43 @@ export class UsersService {
     return this.http.get(`${this.url}/testsActiveByUser/${patient_id}`);
   }
 
+  listarTestInactivos(patient_id: String): Observable<any> {
+    return this.http.get(`${this.url}/testsInactivoByUser/${patient_id}`);
+  }
+
   buscarPatientByUserId(user_id: String): Observable<any> {
     return this.http.get(`${this.url}/patientByUser_id/${user_id}`);
+  }
+
+  listarPreguntasBase(): Observable<any> {
+    return this.http.get(`${this.url}/preguntas_base`);
+  }
+
+  runTest(rptas: any): Observable<any> {
+    return this.http.post(`${this.url}/run`, JSON.stringify(rptas), {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    });
+  }
+
+  cambiarEstadoTest(test: any): Observable<any> {
+    return this.http.patch(
+      `${this.url}/test/${test.id}`,
+      JSON.stringify(test),
+      { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
+    );
+  }
+
+  buscarTestById(test_id: String): Observable<any> {
+    return this.http.get(`${this.url}/test/${test_id}`);
+  }
+
+  listarPsicologos(): Observable<any> {
+    return this.http.get(`${this.url}/psychologists`);
+  }
+
+  agregarPsicologo(Paciente: any): Observable<any> {
+    return this.http.post(`${this.url}/psychologist`, JSON.stringify(Paciente), {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    });
   }
 }

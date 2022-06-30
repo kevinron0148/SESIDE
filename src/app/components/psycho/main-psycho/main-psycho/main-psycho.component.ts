@@ -9,8 +9,9 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class MainPsychoComponent implements OnInit {
   psycho = new Psychologist(0, '', '', '', 0);
-  opcion = 0;
+  opcion = 3;
   constructor(private userService: UsersService) {}
+ 
 
   ngOnInit(): void {
     this.userService

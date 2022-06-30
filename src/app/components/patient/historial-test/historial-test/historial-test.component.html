@@ -1,4 +1,4 @@
-<h1 style="text-align: center;margin-top: 10px;">GESTIONAR TEST</h1>
+<h1 style="text-align: center;margin-top: 10px;">TEST COMPLETADOS</h1>
 <table class="table" style="background-color: beige">
   <thead>
     <tr>
@@ -7,22 +7,19 @@
       <th scope="col">Estado</th>
       <th scope="col">Observación</th>
       <th scope="col">Psicologo</th>
-      <th scope="col">Iniciar</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let test of tests">
       <td>{{test.id}}</td>
-      <td>{{test.date}}</td>
+      <td>{{fecha}}</td>
       <td *ngIf="test.is_active == true">Pendiente</td>
       <td *ngIf="test.is_active != true">Completado</td>
       <td>{{test.observation}}</td>
       <td><button class="btn btn-info btn-xs" (click)="open(modalPsycho)" (click)="seleccionarTest(test)">VER
           DATOS</button></td>
-      <td><button class="btn btn-info btn-xs" (click)="runTest(test)">ABRIR</button></td>
     </tr>
   </tbody>
-
 </table>
 
 <ng-template #modalPsycho let-modalPsycho>

@@ -1,0 +1,50 @@
+<body>
+    <div class="from-group text-center" *ngIf="opcion==0">
+        <h1
+            style="margin-top: 25px;font-style: normal;font-weight: 800;font-size: 50px;line-height: 59px;color: #3B4664;">
+            SEDIDE - DIAGNÓSTICO DE LA
+            DEPRESIÓN
+        </h1>
+        <div class="col-12">
+            <label style="font-style: normal;font-weight: 400;font-size: 25px;line-height: 29px;color: #000000;">Estamos
+                ayudándote en el cuidado de tu salud mental</label>
+        </div>
+        <div class="col-12">
+            <img class="logo" src="../../../../assets/img/brainremove.png" style="width: 20%;" alt="logo">
+        </div>
+        <input type="button" value="Empezar" (click)="opcion1()"
+            style="color: #FFFFFF;background: #3B4664; border-radius: 50px;width: 110px;height: 40px; left: 638px; margin-bottom: 10px;border: transparent;">
+
+    </div>
+
+    <div class="col-12" *ngIf="opcion==1">
+        <h1 style="text-align: center;margin-top: 10px;">GESTIONAR TEST</h1>
+        <h3 style="text-align: center;margin-top: 10px;">LEE ATENTAMENTE CADA PREGUNTA Y MARCA SI O NO SEGUN CORRESPONDA, EN CASO NO SE MARQUE SE CONSIDERA LA RESPUESTA = OTRO</h3>
+        <div class="col-6" style="text-align: center; margin-left: 25%;">
+            <table class="table" style="background-color: beige">
+                <thead>
+                    <tr>
+                        <th scope="col">Número</th>
+                        <th scope="col">Pregunta</th>
+                        <th scope="col">Respuesta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pregunta_base of preguntas_base">
+                        <td>{{pregunta_base.id}}</td>
+                        <td>{{pregunta_base.description}}</td>
+                        <td ><button class="btn btn-info btn-xs" style="margin-right: 10px"
+                                (click)="registrarRespuestaSi(pregunta_base)">SI</button><button
+                                style="margin-right: 10px" class="btn btn-info btn-xs"
+                                (click)="registrarRespuestaNo(pregunta_base)">NO</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <div class="col-12 pb-3" style=" display: flex; justify-content: center; align-items: center;">
+                <button (click)="runTest()">ENVIAR</button>
+              </div>
+        </div>
+    </div>
+</body>

@@ -6,6 +6,7 @@ import { ListarPacientesComponent } from './components/patient/list-patients/lis
 import { MainPatientComponent } from './components/patient/main-patient/main-patient/main-patient.component';
 import { MainPsychoComponent } from './components/psycho/main-psycho/main-psycho/main-psycho.component';
 import { ListarTestComponent } from './components/test/listar-test/listar-test.component';
+import { RunTestComponent } from './components/test/run-test/run-test/run-test.component';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'patient',
     component: MainPatientComponent, canActivate: [LoginGuard]
+  },
+  {
+    path: 'run-test',
+    component: RunTestComponent, canActivate: [LoginGuard]
   },
   /*{
     path: 'test',
